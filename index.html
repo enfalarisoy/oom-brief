@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oops! Out of Moves - Brief Page</title>
+    <style>
+      :root {
+        --bg: #f8f7f4;
+        --card: #ffffff;
+        --border: #e7e3db;
+        --text: #1a1a1a;
+        --body: #49433d;
+        --muted: #80796f;
+        --blue: #2d63a8;
+        --red: #bb3730;
+        --green: #2f7b3e;
+        --orange: #9a6017;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      .page {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 28px 18px 60px;
+        min-height: 100vh;
+      }
+
+      header {
+        margin-bottom: 18px;
+      }
+
+      .kicker {
+        margin-bottom: 8px;
+        color: #9a948a;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2 {
+        font-family: Georgia, serif;
+        font-weight: 400;
+      }
+
+      h1 {
+        margin: 0 0 6px;
+        font-size: 34px;
+        line-height: 1.08;
+      }
+
+      .subtitle {
+        margin-bottom: 10px;
+        color: #5a544d;
+        font-family: Georgia, serif;
+        font-size: 18px;
+        font-style: italic;
+      }
+
+      .authors {
+        color: #8c857b;
+        font-size: 12px;
+      }
+
+      section {
+        margin-bottom: 16px;
+        padding: 20px 20px 18px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        color: var(--text);
+        font-size: 24px;
+        line-height: 1.15;
+      }
+
+      p {
+        margin: 0 0 14px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      figure {
+        margin: 0;
+      }
+
+      .figure-centered {
+        margin: 0 auto;
+      }
+
+      .figure-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        background: #fff;
+        border-radius: 10px;
+      }
+
+      figcaption {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .phone-pair {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .phone-pair a {
+        width: min(42%, 249px);
+        display: block;
+      }
+
+      .phone-pair img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(45, 38, 30, 0.12);
+      }
+
+      .center-caption {
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .video-card {
+        padding: 10px;
+        background: #fbfaf7;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+      }
+
+      .video-title {
+        margin-bottom: 8px;
+        color: #8c857b;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      video {
+        width: 100%;
+        display: block;
+        background: #111;
+        border-radius: 9px;
+      }
+
+      .tradeoff-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        align-items: stretch;
+      }
+
+      .tradeoff-card {
+        padding: 16px 14px;
+        border-radius: 12px;
+      }
+
+      .tradeoff-label {
+        margin-bottom: 8px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .tradeoff-text {
+        color: #2a352d;
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .policy-shift {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        background: #fbfaf7;
+        border: 1px solid #d8d2c7;
+      }
+
+      .policy-title {
+        color: var(--text);
+        font-family: Georgia, serif;
+        font-size: 22px;
+        line-height: 1.2;
+      }
+
+      .callout {
+        margin-bottom: 14px;
+        padding: 12px 14px;
+        border-left: 4px solid var(--red);
+        border-radius: 8px;
+        background: #fff2f1;
+        color: #7d201b;
+      }
+
+      .callout-title {
+        margin-bottom: 4px;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .callout-text {
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .stats {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 14px;
+      }
+
+      .stat-card {
+        flex: 1;
+        min-width: 180px;
+        padding: 14px 15px;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+      }
+
+      .stat-label {
+        margin-bottom: 6px;
+        color: #9a948a;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .stat-value {
+        margin-bottom: 5px;
+        font-family: Georgia, serif;
+        font-size: 28px;
+        line-height: 1.05;
+      }
+
+      .stat-note {
+        color: #6d675f;
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .mechanism-grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .mechanism-card {
+        padding: 13px 15px;
+        border-radius: 10px;
+      }
+
+      .mechanism-title {
+        margin-bottom: 6px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .mechanism-body {
+        margin-bottom: 8px;
+        color: var(--body);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .mini-grid {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .mini-card {
+        flex: 1;
+        min-width: 190px;
+        padding: 8px 10px;
+        background: #fff;
+        border-radius: 7px;
+      }
+
+      .mini-label {
+        color: #958d83;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .mini-value {
+        margin-top: 3px;
+        color: var(--body);
+        font-size: 13px;
+      }
+
+      @media (max-width: 560px) {
+        .page {
+          padding: 20px 12px 48px;
+        }
+
+        section {
+          padding: 17px 14px 16px;
+        }
+
+        .phone-pair {
+          gap: 10px;
+        }
+
+        .phone-pair a {
+          width: min(47%, 249px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <div class="kicker">Brief Companion Page</div>
+        <h1>Oops! Out of Moves</h1>
+        <div class="subtitle">A brief introduction to dynamic post-failure offers in mobile games</div>
+        <div class="authors">Enfal Arisoy &amp; Ovunc Yilmaz &middot; Leeds School of Business, CU Boulder</div>
+      </header>
+
+      <section>
+        <div class="kicker">1. Why Games Matter</div>
+        <h2>Mobile games are a huge and growing business</h2>
+        <p>
+          Video games are one of the fastest-growing entertainment categories, with
+          projected industry revenue approaching <b>$400 billion by 2027</b>.
+          Mobile games account for half of the industry revenue.
+        </p>
+        <p>
+          As mobile game industry shifts from ad-driven models to in-app-purchase
+          driven revenue models, understanding how in-game offers affect player
+          behavior becomes increasingly important.
+        </p>
+        <figure class="figure-centered" style="max-width: 520px">
+          <a href="./assets/brief/first_image.png" target="_blank" rel="noreferrer">
+            <img
+              class="figure-image"
+              src="./assets/brief/first_image.png"
+              alt="Royal Match game profile and monetization statistics"
+            />
+          </a>
+          <figcaption>
+            Royal Match illustrates the scale and commercial importance of modern
+            mobile-game monetization.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <div class="kicker">2. Match-3 Monetization</div>
+        <h2>Extra move offers are a core monetization tool</h2>
+        <p>
+          A central monetization tool in casual mobile games is post-failure bonus
+          action offers. These are bonus actions such as extra moves/lives offered for
+          in-game currency (i.e., coins) after a failure and allow players to continue
+          from the point of failure without restarting.
+        </p>
+        <figure>
+          <div class="phone-pair">
+            <a href="./assets/brief/oom1.png" target="_blank" rel="noreferrer">
+              <img src="./assets/brief/oom1.png" alt="Player reaches an out-of-moves screen" />
+            </a>
+            <a href="./assets/brief/offer.png" target="_blank" rel="noreferrer">
+              <img src="./assets/brief/offer.png" alt="Post-failure offer for five extra moves" />
+            </a>
+          </div>
+          <figcaption class="center-caption">
+            After running out of moves, the player can spend coins to continue the
+            same level instead of restarting.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <div class="kicker">3. Policy Change</div>
+        <h2>The industry moved from fixed offers to dynamic offers</h2>
+        <p>
+          Under the <b>fixed policy</b>, players receive the same post-failure offer
+          each time they fail. Under the <b>dynamic policy</b>, offer size increases
+          with repeated failures on the same level (<b>+5, +5, +10, +15, ...</b>),
+          while offer prices remain unchanged.
+        </p>
+        <figure class="figure-centered" style="max-width: 640px">
+          <a href="./assets/brief/graph1.png" target="_blank" rel="noreferrer">
+            <img
+              class="figure-image"
+              src="./assets/brief/graph1.png"
+              alt="Fixed and dynamic extra-move offer schedules"
+            />
+          </a>
+          <figcaption>
+            The fixed policy always offers five moves. The dynamic policy increases the
+            bundle after repeated attempts, reaching 35 moves from attempt eight onward.
+          </figcaption>
+        </figure>
+
+        <div class="video-grid" aria-label="Policy-change video examples">
+          <div class="video-card">
+            <div class="video-title">Gameplay example</div>
+            <video controls muted playsinline preload="metadata">
+              <source src="./assets/brief/end139_speed4.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="video-card">
+            <div class="video-title">Exact +5 offer example</div>
+            <video controls muted playsinline preload="metadata">
+              <source src="./assets/brief/end134_hold3_exact5_speed4.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="kicker">4. Trade-Off</div>
+        <h2>Why this design change could help or hurt revenue</h2>
+        <p>
+          The key question is intertemporal: does a larger offer increase monetization,
+          or does it simply pull spending forward while reducing future purchase
+          opportunities?
+        </p>
+        <div class="tradeoff-row">
+          <div class="tradeoff-card" style="background: #f1faf1; border: 1px solid #b7dbc1">
+            <div class="tradeoff-label" style="color: var(--green)">Expansion</div>
+            <div class="tradeoff-text">
+              Players might be more willing to accept larger offers, which can increase
+              the monetization.
+            </div>
+          </div>
+
+          <div class="tradeoff-card policy-shift">
+            <div style="margin-bottom: 4px; color: #7f786e; font-size: 12px">Policy shift</div>
+            <div class="policy-title">Fixed &rarr; Dynamic</div>
+            <div style="margin-top: 6px; color: #7f786e; font-size: 12px">
+              More moves per purchase
+            </div>
+          </div>
+
+          <div class="tradeoff-card" style="background: #fff2f1; border: 1px solid #e6b8b3">
+            <div class="tradeoff-label" style="color: var(--red)">Acceleration</div>
+            <div class="tradeoff-text" style="color: #352c2a">
+              Larger bundles can help players clear levels faster, reducing exposure to
+              the post-failure offers therefore reduce monetization.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="kicker">5. Main Result</div>
+        <h2>Short-run gains reverse into longer-run losses</h2>
+        <div class="callout">
+          <div class="callout-title">Main takeaway</div>
+          <div class="callout-text">
+            Dynamic post-failure offers create an immediate increase in spending, but
+            that lift fades quickly and turns into a persistent decline. A short A/B
+            test would likely overstate profitability.
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-label">Treatment Bin</div>
+            <div class="stat-value" style="color: var(--blue)">+74.931</div>
+            <div class="stat-note">Immediate increase in spending at treatment</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Bins 1-10</div>
+            <div class="stat-value" style="color: var(--red)">-89.028</div>
+            <div class="stat-note">Persistent decline after the initial lift</div>
+          </div>
+        </div>
+
+        <figure>
+          <a href="./assets/brief/new_nyt_adjusted.png" target="_blank" rel="noreferrer">
+            <img
+              class="figure-image"
+              src="./assets/brief/new_nyt_adjusted.png"
+              alt="Event-study estimates of spending before and after dynamic offers"
+            />
+          </a>
+          <figcaption>
+            Spending rises in the treatment bin, then falls sharply and remains negative
+            across the next ten bins.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <div class="kicker">6. Mechanism</div>
+        <h2>Mechanism behind the main effect</h2>
+        <div class="mechanism-grid">
+          <div class="mechanism-card" style="background: #fff7f5; border: 1px solid #ecd0cb">
+            <div class="mechanism-title" style="color: #9b302a">Intertemporal substitution</div>
+            <div class="mechanism-body">
+              Players reduce purchases on second and subsequent post-failure offers.
+            </div>
+            <div class="mini-grid">
+              <div class="mini-card">
+                <div class="mini-label">First offer</div>
+                <div class="mini-value">-17 coins (-3%, not significant)</div>
+              </div>
+              <div class="mini-card">
+                <div class="mini-label">Second+ offers</div>
+                <div class="mini-value" style="color: #9b302a; font-weight: 700">
+                  -51 coins (-56%, p&lt;0.001)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mechanism-card" style="background: #fff9ee; border: 1px solid #ead9b8">
+            <div class="mechanism-title" style="color: var(--orange)">Strategic waiting</div>
+            <div class="mechanism-body">
+              Players delay purchases to secure larger offers at the same price.
+            </div>
+            <div class="mini-grid">
+              <div class="mini-card">
+                <div class="mini-label">Attempt 1</div>
+                <div class="mini-value" style="color: #9b302a; font-weight: 700">
+                  Acceptance falls 5 p.p. (p&lt;0.001)
+                </div>
+              </div>
+              <div class="mini-card">
+                <div class="mini-label">Attempt 4 onward</div>
+                <div class="mini-value" style="color: #2d6d3b; font-weight: 700">
+                  Acceptance rises by up to 4 p.p. (p&lt;0.001)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mechanism-card" style="background: #f1f8f2; border: 1px solid #c6ddca">
+            <div class="mechanism-title" style="color: #2d6d3b">Faster progression</div>
+            <div class="mechanism-body" style="margin-bottom: 0">
+              Despite strategic waiting, players advance more quickly:
+              <b style="color: #2d6d3b">1.90 fewer attempts per 10 levels</b>, on average.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
