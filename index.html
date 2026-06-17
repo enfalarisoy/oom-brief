@@ -148,9 +148,8 @@
 
       .video-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-template-columns: 1fr;
         gap: 12px;
-        margin-top: 14px;
       }
 
       .video-card {
@@ -376,29 +375,27 @@
             />
           </a>
           <figcaption>
-            Royal Match illustrates the scale and commercial importance of modern
-            mobile-game monetization.
+            Royal Match reached 6 billion dollar revenue 4 years after its release.
           </figcaption>
         </figure>
       </section>
 
       <section>
         <div class="kicker">2. Match-3 Monetization</div>
-        <h2>Extra move offers are a core monetization tool</h2>
+        <h2>Post-failure bonus action offers are core monetization tools</h2>
         <p>
           A central monetization tool in casual mobile games is post-failure bonus
           action offers. These are bonus actions such as extra moves/lives offered for
           in-game currency (i.e., coins) after a failure and allow players to continue
           from the point of failure without restarting.
         </p>
-        <figure>
-          <div class="phone-pair">
-            <a href="./assets/brief/oom1.png" target="_blank" rel="noreferrer">
-              <img src="./assets/brief/oom1.png" alt="Player reaches an out-of-moves screen" />
-            </a>
-            <a href="./assets/brief/offer.png" target="_blank" rel="noreferrer">
-              <img src="./assets/brief/offer.png" alt="Post-failure offer for five extra moves" />
-            </a>
+        <figure class="figure-centered" style="max-width: 360px">
+          <div class="video-card">
+            <div class="video-title">EXAMPLE GAMEPLAY</div>
+            <video controls muted playsinline preload="metadata">
+              <source src="./assets/brief/end134_hold3_exact5_speed4.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
           <figcaption class="center-caption">
             After running out of moves, the player can spend coins to continue the
@@ -429,23 +426,19 @@
             bundle after repeated attempts, reaching 35 moves from attempt eight onward.
           </figcaption>
         </figure>
-
-        <div class="video-grid" aria-label="Policy-change video examples">
-          <div class="video-card">
-            <div class="video-title">Gameplay example</div>
-            <video controls muted playsinline preload="metadata">
-              <source src="./assets/brief/end139_speed4.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="video-card">
-            <div class="video-title">Exact +5 offer example</div>
-            <video controls muted playsinline preload="metadata">
-              <source src="./assets/brief/end134_hold3_exact5_speed4.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
+        <figure class="figure-centered" style="max-width: 720px; margin-top: 14px">
+          <a href="./assets/brief/different_offers.png" target="_blank" rel="noreferrer">
+            <img
+              class="figure-image"
+              src="./assets/brief/different_offers.png"
+              alt="Examples of different post-failure offer sizes"
+            />
+          </a>
+          <figcaption>
+            Example offer screens showing how the post-failure bundle changes across
+            attempts.
+          </figcaption>
+        </figure>
       </section>
 
       <section>
