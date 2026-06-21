@@ -97,6 +97,69 @@
         line-height: 1.7;
       }
 
+      .game-loop-card {
+        margin: 2px 0 18px;
+        padding: 22px 26px 20px 32px;
+        background: #eef4fb;
+        border-left: 8px solid var(--blue);
+        border-radius: 14px;
+      }
+
+      .mini-heading {
+        margin: 0 0 16px;
+        color: var(--blue);
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .game-loop-intro {
+        margin: 0 0 20px;
+        color: #28374b;
+        font-size: 19px;
+        line-height: 1.7;
+      }
+
+      .game-steps {
+        display: grid;
+        gap: 20px;
+      }
+
+      .game-step {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: 20px;
+        align-items: start;
+      }
+
+      .step-number {
+        width: 48px;
+        height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--blue);
+        border-radius: 999px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .step-text {
+        color: #28374b;
+        font-size: 18px;
+        line-height: 1.55;
+      }
+
+      .offer-definition {
+        margin: 0 0 18px;
+        color: #4d4740;
+        font-size: 18px;
+        line-height: 1.75;
+      }
+
       figure {
         margin: 0;
       }
@@ -398,74 +461,6 @@
         margin-bottom: 2px;
       }
 
-      /* Plain-English explainer box for newcomers */
-      .plain {
-        margin: 0 0 16px;
-        padding: 13px 16px 14px;
-        background: #eef4fb;
-        border-left: 4px solid var(--blue);
-        border-radius: 8px;
-      }
-
-      .plain-label {
-        margin-bottom: 7px;
-        color: var(--blue);
-        font-size: 10px;
-        font-weight: 800;
-        letter-spacing: 0.07em;
-        text-transform: uppercase;
-      }
-
-      .plain-text {
-        margin: 0;
-        color: #2b3a4d;
-        font-size: 13.5px;
-        line-height: 1.7;
-      }
-
-      .plain-text b {
-        color: #16263a;
-      }
-
-      /* Numbered "how it works" step list */
-      .steps {
-        margin: 11px 0 0;
-        padding: 0;
-        list-style: none;
-        counter-reset: step;
-      }
-
-      .steps li {
-        position: relative;
-        margin-bottom: 11px;
-        padding-left: 38px;
-        color: #2b3a4d;
-        font-size: 13.5px;
-        line-height: 1.6;
-      }
-
-      .steps li:last-child {
-        margin-bottom: 0;
-      }
-
-      .steps li::before {
-        counter-increment: step;
-        content: counter(step);
-        position: absolute;
-        left: 0;
-        top: -1px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 24px;
-        height: 24px;
-        background: var(--blue);
-        color: #fff;
-        border-radius: 50%;
-        font-size: 12px;
-        font-weight: 700;
-      }
-
       @media (max-width: 560px) {
         .page {
           padding: 20px 12px 48px;
@@ -473,6 +468,27 @@
 
         section {
           padding: 17px 14px 16px;
+        }
+
+        .game-loop-card {
+          padding: 18px 16px 18px 20px;
+        }
+
+        .game-loop-intro,
+        .step-text,
+        .offer-definition {
+          font-size: 15px;
+        }
+
+        .game-step {
+          grid-template-columns: 36px 1fr;
+          gap: 12px;
+        }
+
+        .step-number {
+          width: 36px;
+          height: 36px;
+          font-size: 16px;
         }
 
         .phone-pair {
@@ -504,7 +520,6 @@
         <p>
           Video games are one of the fastest-growing entertainment categories, with
           projected industry revenue approaching <b>$400 billion by 2027</b>.
-          Mobile games account for half of the industry revenue.
         </p>
         <p>
           As mobile game industry shifts from ad-driven models to in-app-purchase
@@ -528,34 +543,41 @@
       <section>
         <div class="kicker">2. Match-3 Monetization</div>
         <h2>Post-failure bonus action offers are core monetization tools</h2>
-        <div class="plain">
-          <div class="plain-label">First, how these games work</div>
-          <p class="plain-text">
-            The games we study are <b>match-3 puzzles</b> (think <i>Candy Crush</i> or
-            <i>Royal Match</i>). The basic loop is simple:
-          </p>
-          <ol class="steps">
-            <li>
-              Each <b>level</b> gives you a goal (clear the board) and a
-              <b>limited number of moves</b> to do it &mdash; for example, 27 swaps.
-            </li>
-            <li>
-              If you reach the goal before your moves run out, you <b>win</b> and advance
-              to the next level.
-            </li>
-            <li>
-              If you run out of moves first, you <b>fail</b>. Right at that failure moment,
-              the game offers a deal: <b>spend coins to get a few extra moves</b> and continue
-              from where you got stuck, instead of starting over.
-            </li>
-          </ol>
+        <div class="game-loop-card">
+          <div class="mini-heading">First, how these games work</div>
+          <div class="game-steps" aria-label="How match-3 games work">
+            <div class="game-step">
+              <div class="step-number">1</div>
+              <div class="step-text">
+                At each level, players need to clear the obstacles in the board by
+                making matches of three or more identical objects with a limited number
+                of moves&mdash;for example, 27 moves.
+              </div>
+            </div>
+            <div class="game-step">
+              <div class="step-number">2</div>
+              <div class="step-text">
+                If players clear all obstacles before their moves run out, they complete
+                the level and advance to the next level.
+              </div>
+            </div>
+            <div class="game-step">
+              <div class="step-number">3</div>
+              <div class="step-text">
+                If players run out of moves before clearing the board, they fail. Right
+                at that failure moment, the game shows an offer: spend coins to get a
+                few extra moves and continue from where they got stuck, instead of
+                starting over.
+              </div>
+            </div>
+          </div>
         </div>
-        <p>
-          That deal &mdash; the one shown at the moment of failure &mdash; is a
-          <b>post-failure bonus action offer</b>, and it is a central monetization tool in
-          casual mobile games. These offers provide bonus actions such as extra moves or lives
-          in exchange for in-game currency (i.e., coins), letting players continue from the
-          point of failure without restarting.
+        <p class="offer-definition">
+          That offer&mdash;shown at the moment of failure&mdash;is what we call as a
+          <b>post-failure bonus action offer</b>, and it is a central monetization tool
+          in casual mobile games. These offers provide bonus actions such as extra
+          moves or lives in exchange for in-game currency (i.e., coins), letting
+          players continue from the point of failure without restarting.
         </p>
         <figure class="figure-centered" style="max-width: 360px">
           <div class="video-card">
@@ -574,7 +596,10 @@
 
       <section>
         <div class="kicker">3. Policy Change</div>
-        <h2>The industry moved from fixed offers to dynamic offers</h2>
+        <p>
+          Starting in 2023, leading casual games began shifting from <b>fixed</b> to
+          <b>dynamic</b> post-failure offers.
+        </p>
         <p>
           Under the <b>fixed policy</b>, players receive the same post-failure offer
           each time they fail. Under the <b>dynamic policy</b>, offer size increases
@@ -676,7 +701,6 @@
 
       <section>
         <div class="kicker">6. Mechanism</div>
-        <h2>Mechanism behind the main effect</h2>
         <div class="mechanism-grid">
           <div class="mechanism-card" style="background: #fff7f5; border: 1px solid #ecd0cb">
             <div class="mechanism-title" style="color: #9b302a">Intertemporal substitution</div>
@@ -723,7 +747,6 @@
 
       <section>
         <div class="kicker">7. Main Takeaways</div>
-        <h2>Main takeaways</h2>
         <ol class="takeaway-list">
           <li>
             <b>"Helping more" can reduce monetization!</b>
@@ -750,6 +773,7 @@
           </li>
         </ol>
       </section>
+
     </main>
   </body>
 </html>
