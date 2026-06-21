@@ -293,6 +293,12 @@
         text-transform: uppercase;
       }
 
+      .bin-marker {
+        color: var(--green);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
       .total-effect-value {
         color: var(--red);
         font-family: Georgia, serif;
@@ -310,7 +316,8 @@
 
       .mechanism-grid {
         display: grid;
-        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 12px;
       }
 
       .mechanism-card {
@@ -358,6 +365,107 @@
         font-size: 13px;
       }
 
+      .bin-footnote {
+        margin: -4px 0 14px;
+        color: var(--green);
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+
+      .takeaway-list {
+        margin: 0;
+        padding-left: 22px;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .takeaway-list > li {
+        margin-bottom: 14px;
+      }
+
+      .takeaway-list > li:last-child {
+        margin-bottom: 0;
+      }
+
+      .takeaway-list ul {
+        margin: 5px 0 0;
+        padding-left: 18px;
+      }
+
+      .takeaway-list li li {
+        margin-bottom: 2px;
+      }
+
+      /* Plain-English explainer box for newcomers */
+      .plain {
+        margin: 0 0 16px;
+        padding: 13px 16px 14px;
+        background: #eef4fb;
+        border-left: 4px solid var(--blue);
+        border-radius: 8px;
+      }
+
+      .plain-label {
+        margin-bottom: 7px;
+        color: var(--blue);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+
+      .plain-text {
+        margin: 0;
+        color: #2b3a4d;
+        font-size: 13.5px;
+        line-height: 1.7;
+      }
+
+      .plain-text b {
+        color: #16263a;
+      }
+
+      /* Numbered "how it works" step list */
+      .steps {
+        margin: 11px 0 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: step;
+      }
+
+      .steps li {
+        position: relative;
+        margin-bottom: 11px;
+        padding-left: 38px;
+        color: #2b3a4d;
+        font-size: 13.5px;
+        line-height: 1.6;
+      }
+
+      .steps li:last-child {
+        margin-bottom: 0;
+      }
+
+      .steps li::before {
+        counter-increment: step;
+        content: counter(step);
+        position: absolute;
+        left: 0;
+        top: -1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        background: var(--blue);
+        color: #fff;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
       @media (max-width: 560px) {
         .page {
           padding: 20px 12px 48px;
@@ -374,15 +482,19 @@
         .phone-pair a {
           width: min(47%, 249px);
         }
+
+        .mechanism-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
   <body>
     <main class="page">
       <header>
-        <div class="kicker">Brief Companion Page</div>
+        <div class="kicker">Brief Companion Page For</div>
         <h1>Oops! Out of Moves</h1>
-        <div class="subtitle">A brief introduction to dynamic post-failure offers in mobile games</div>
+        <div class="subtitle">The Impact of Dynamic Post-Failure Offers on Monetization in Mobile Games</div>
         <div class="authors">Enfal Arisoy &amp; Ovunc Yilmaz &middot; Leeds School of Business, CU Boulder</div>
       </header>
 
@@ -416,15 +528,38 @@
       <section>
         <div class="kicker">2. Match-3 Monetization</div>
         <h2>Post-failure bonus action offers are core monetization tools</h2>
+        <div class="plain">
+          <div class="plain-label">First, how these games work</div>
+          <p class="plain-text">
+            The games we study are <b>match-3 puzzles</b> (think <i>Candy Crush</i> or
+            <i>Royal Match</i>). The basic loop is simple:
+          </p>
+          <ol class="steps">
+            <li>
+              Each <b>level</b> gives you a goal (clear the board) and a
+              <b>limited number of moves</b> to do it &mdash; for example, 27 swaps.
+            </li>
+            <li>
+              If you reach the goal before your moves run out, you <b>win</b> and advance
+              to the next level.
+            </li>
+            <li>
+              If you run out of moves first, you <b>fail</b>. Right at that failure moment,
+              the game offers a deal: <b>spend coins to get a few extra moves</b> and continue
+              from where you got stuck, instead of starting over.
+            </li>
+          </ol>
+        </div>
         <p>
-          A central monetization tool in casual mobile games is post-failure bonus
-          action offers. These are bonus actions such as extra moves/lives offered for
-          in-game currency (i.e., coins) after a failure and allow players to continue
-          from the point of failure without restarting.
+          That deal &mdash; the one shown at the moment of failure &mdash; is a
+          <b>post-failure bonus action offer</b>, and it is a central monetization tool in
+          casual mobile games. These offers provide bonus actions such as extra moves or lives
+          in exchange for in-game currency (i.e., coins), letting players continue from the
+          point of failure without restarting.
         </p>
         <figure class="figure-centered" style="max-width: 360px">
           <div class="video-card">
-            <div class="video-title">EXAMPLE GAMEPLAY</div>
+            <div class="video-title">EXAMPLE GAMEPLAY VIDEO</div>
             <video controls muted playsinline preload="metadata">
               <source src="./assets/brief/end134_hold3_exact5_speed4.mp4" type="video/mp4" />
               Your browser does not support the video tag.
@@ -476,11 +611,10 @@
 
       <section>
         <div class="kicker">4. Trade-Off</div>
-        <h2>Why this design change could help or hurt revenue</h2>
+        <h2>Research Question:</h2>
         <p>
-          The key question is intertemporal: does a larger offer increase monetization,
-          or does it simply pull spending forward while reducing future purchase
-          opportunities?
+          How does switching from a fixed to a dynamic post-failure offer policy
+          affect players' intertemporal spending?
         </p>
         <div class="tradeoff-row">
           <div class="tradeoff-card" style="background: #f1faf1; border: 1px solid #b7dbc1">
@@ -488,14 +622,6 @@
             <div class="tradeoff-text">
               Players might be more willing to accept larger offers, which can increase
               the monetization.
-            </div>
-          </div>
-
-          <div class="tradeoff-card policy-shift">
-            <div style="margin-bottom: 4px; color: #7f786e; font-size: 12px">Policy shift</div>
-            <div class="policy-title">Fixed &rarr; Dynamic</div>
-            <div style="margin-top: 6px; color: #7f786e; font-size: 12px">
-              More moves per purchase
             </div>
           </div>
 
@@ -513,23 +639,24 @@
         <div class="kicker">5. Main Result</div>
         <h2>Short-run gains reverse into longer-run losses</h2>
         <div class="total-effect-card">
-          <div class="total-effect-label">Total Effect Bins 0-10</div>
+          <div class="total-effect-label">Total Effect Bins 0-10 <sup class="bin-marker">*</sup></div>
           <div class="total-effect-value">-68.35***</div>
           <div class="total-effect-note">~10% net decrease in coin spending</div>
         </div>
 
         <div class="stats">
           <div class="stat-card">
-            <div class="stat-label">Treatment Bin</div>
-            <div class="stat-value" style="color: var(--blue)">+74.931</div>
+            <div class="stat-label">Treatment Bin <sup class="bin-marker">*</sup></div>
+            <div class="stat-value" style="color: var(--blue)">+74.931***</div>
             <div class="stat-note">Immediate increase in spending at treatment</div>
           </div>
           <div class="stat-card">
-            <div class="stat-label">Bins 1-10</div>
-            <div class="stat-value" style="color: var(--red)">-89.028</div>
+            <div class="stat-label">Bins 1-10 <sup class="bin-marker">*</sup></div>
+            <div class="stat-value" style="color: var(--red)">-89.028***</div>
             <div class="stat-note">Persistent decline after the initial lift</div>
           </div>
         </div>
+        <div class="bin-footnote">* Every bin consists of 10 levels.</div>
 
         <figure>
           <a href="./assets/brief/new_nyt_adjusted.png" target="_blank" rel="noreferrer">
@@ -545,14 +672,6 @@
           </figcaption>
         </figure>
 
-        <div class="callout" style="margin-top: 14px">
-          <div class="callout-title">Main takeaway</div>
-          <div class="callout-text">
-            Dynamic post-failure offers create an immediate increase in spending, but
-            that lift fades quickly and turns into a persistent decline. A short A/B
-            test would likely overstate profitability.
-          </div>
-        </div>
       </section>
 
       <section>
@@ -599,14 +718,37 @@
             </div>
           </div>
 
-          <div class="mechanism-card" style="background: #f1f8f2; border: 1px solid #c6ddca">
-            <div class="mechanism-title" style="color: #2d6d3b">Faster progression</div>
-            <div class="mechanism-body" style="margin-bottom: 0">
-              Despite strategic waiting, players advance more quickly:
-              <b style="color: #2d6d3b">1.90 fewer attempts per 10 levels</b>, on average.
-            </div>
-          </div>
         </div>
+      </section>
+
+      <section>
+        <div class="kicker">7. Main Takeaways</div>
+        <h2>Main takeaways</h2>
+        <ol class="takeaway-list">
+          <li>
+            <b>"Helping more" can reduce monetization!</b>
+            <ul>
+              <li>Larger post-failure offers decrease spending among hardcore players.</li>
+              <li>Opposite to common industry practice.</li>
+              <li>Future step: other players and churn behavior.</li>
+            </ul>
+          </li>
+          <li>
+            <b>Short-run A/B tests &ne; Long-run truth!</b>
+            <ul>
+              <li>A/B tests overestimate long-run profitability for this policy.</li>
+              <li>They miss intertemporal substitution in purchases, which is critical in micro-transaction environments.</li>
+            </ul>
+          </li>
+          <li>
+            <b>Personalization matters!</b>
+            <ul>
+              <li>Do not use or overuse for high-skill players.</li>
+              <li>Use selectively for low-skill players.</li>
+              <li>Condition on context: very easy or very hard levels.</li>
+            </ul>
+          </li>
+        </ol>
       </section>
     </main>
   </body>
